@@ -18,16 +18,13 @@ import {
   MDBDropdownItem,
 } from 'mdbreact';
 
-const NavLink: React.FC<{ children: any; href: string }> = ({
-  children,
-  href,
-}) => {
+const NavLink: React.FC<{ title: any; href: string }> = ({ title, href }) => {
   const router = useRouter();
 
   return (
     <MDBNavItem active={router.pathname === href}>
       <Link href={href}>
-        <a className="nav-link">{children}</a>
+        <a className="nav-link">{title}</a>
       </Link>
     </MDBNavItem>
   );
@@ -50,9 +47,9 @@ export const Navigation = () => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/products">Products</NavLink>
-      <NavLink href="/cart">Cart</NavLink>
+      <NavLink title="Home" href="/"></NavLink>
+      <NavLink title="Products" href="/products"></NavLink>
+      <NavLink title="Cart" href="/cart"></NavLink>
       <MDBNavItem>
         <a href="/" onClick={logout} className="nav-link">
           Logout
@@ -73,15 +70,15 @@ export const Navigation = () => {
 
   const guestLinks = (
     <MDBNavbarNav right>
-      <NavLink href="/">Home</NavLink>
+      <NavLink title="Home" href="/"></NavLink>
 
-      <NavLink href="/products">Products</NavLink>
+      <NavLink title="Products" href="/products"></NavLink>
 
-      <NavLink href="/login">Login</NavLink>
+      <NavLink title="Login" href="/login"></NavLink>
 
-      <NavLink href="/register">SignUp</NavLink>
+      <NavLink title="SignUp" href="/register"></NavLink>
 
-      <NavLink href="/cart">Cart</NavLink>
+      <NavLink title="Cart" href="/cart"></NavLink>
     </MDBNavbarNav>
   );
 
