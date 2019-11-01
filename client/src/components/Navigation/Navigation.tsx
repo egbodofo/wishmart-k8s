@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, ReactChildren } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Link from 'next/link';
 import cookie from 'js-cookie';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -17,6 +17,21 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
 } from 'mdbreact';
+
+const NavLink: React.FC<{ children: any; href: string }> = ({
+  children,
+  href,
+}) => {
+  const router = useRouter();
+
+  return (
+    <MDBNavItem active={router.pathname === href}>
+      <Link href={href}>
+        <a className="nav-link">{children}</a>
+      </Link>
+    </MDBNavItem>
+  );
+};
 
 export const Navigation = () => {
   const logout = () => {
@@ -35,67 +50,38 @@ export const Navigation = () => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem>
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/products">
-          <a className="nav-link">Products</a>
-        </Link>
-      </MDBNavItem>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/products">Products</NavLink>
+      <NavLink href="/cart">Cart</NavLink>
       <MDBNavItem>
         <a href="/" onClick={logout} className="nav-link">
           Logout
         </a>
       </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/cart">
-          <a className="nav-link">Cart</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <MDBDropdown>
-          <MDBDropdownToggle nav caret>
-            <span className="mr-2">Profile</span>
-          </MDBDropdownToggle>
-          <MDBDropdownMenu>
-            <MDBDropdownItem href="#!">Orders</MDBDropdownItem>
-            <MDBDropdownItem href="#!">Account</MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>
-      </MDBNavItem>
+
+      <MDBDropdown>
+        <MDBDropdownToggle nav caret>
+          <span className="mr-2">Profile</span>
+        </MDBDropdownToggle>
+        <MDBDropdownMenu>
+          <MDBDropdownItem href="#!">Orders</MDBDropdownItem>
+          <MDBDropdownItem href="#!">Account</MDBDropdownItem>
+        </MDBDropdownMenu>
+      </MDBDropdown>
     </MDBNavbarNav>
   );
 
   const guestLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem active>
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/products">
-          <a className="nav-link">Products</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/login">
-          <a className="nav-link">Login</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/register">
-          <a className="nav-link">Sign Up</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/cart">
-          <a className="nav-link">Cart</a>
-        </Link>
-      </MDBNavItem>
+      <NavLink href="/">Home</NavLink>
+
+      <NavLink href="/products">Products</NavLink>
+
+      <NavLink href="/login">Login</NavLink>
+
+      <NavLink href="/register">SignUp</NavLink>
+
+      <NavLink href="/cart">Cart</NavLink>
     </MDBNavbarNav>
   );
 
