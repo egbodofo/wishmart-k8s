@@ -25,7 +25,7 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 4000
-    - host: www.papistore.ml
+    - host: www.wishmart.ml
       http:
         paths:
           - path: /?(.*)
