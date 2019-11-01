@@ -50,21 +50,24 @@ export const Navigation = () => {
       <NavLink title="Home" href="/" />
       <NavLink title="Products" href="/products" />
       <NavLink title="Cart" href="/cart" />
+
+      <MDBNavItem>
+        <MDBDropdown>
+          <MDBDropdownToggle nav caret>
+            <span className="mr-2">Profile</span>
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem href="#!">Orders</MDBDropdownItem>
+            <MDBDropdownItem href="#!">Account</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+      </MDBNavItem>
+
       <MDBNavItem>
         <a href="/" onClick={logout} className="nav-link">
           Logout
         </a>
       </MDBNavItem>
-
-      <MDBDropdown>
-        <MDBDropdownToggle nav caret>
-          <span className="mr-2">Profile</span>
-        </MDBDropdownToggle>
-        <MDBDropdownMenu>
-          <MDBDropdownItem href="#!">Orders</MDBDropdownItem>
-          <MDBDropdownItem href="#!">Account</MDBDropdownItem>
-        </MDBDropdownMenu>
-      </MDBDropdown>
     </MDBNavbarNav>
   );
 
