@@ -47,9 +47,9 @@ export const Navigation = () => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <NavLink title="Home" href="/"></NavLink>
-      <NavLink title="Products" href="/products"></NavLink>
-      <NavLink title="Cart" href="/cart"></NavLink>
+      <NavLink title="Home" href="/" />
+      <NavLink title="Products" href="/products" />
+      <NavLink title="Cart" href="/cart" />
       <MDBNavItem>
         <a href="/" onClick={logout} className="nav-link">
           Logout
@@ -70,15 +70,15 @@ export const Navigation = () => {
 
   const guestLinks = (
     <MDBNavbarNav right>
-      <NavLink title="Home" href="/"></NavLink>
+      <NavLink title="Home" href="/" />
 
-      <NavLink title="Products" href="/products"></NavLink>
+      <NavLink title="Products" href="/products" />
 
-      <NavLink title="Login" href="/login"></NavLink>
+      <NavLink title="Login" href="/login" />
 
-      <NavLink title="SignUp" href="/register"></NavLink>
+      <NavLink title="SignUp" href="/register" />
 
-      <NavLink title="Cart" href="/cart"></NavLink>
+      <NavLink title="Cart" href="/cart" />
     </MDBNavbarNav>
   );
 
