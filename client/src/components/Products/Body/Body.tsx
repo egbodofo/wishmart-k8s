@@ -33,7 +33,7 @@ const Body = (props: IntProps) => {
   };
 
   return (
-    <MDBCol className="col-lg-3 col-md-6 pb-1">
+    <MDBCol sm="12" md="6" lg="3" pb="1">
       <MDBCard className="mb-lg-0 mb-4 pb-2" style={{ maxHeight: '34rem' }}>
         <MDBCardImage cascade top alt="" src={props.obj.image} waves />
         <hr />
