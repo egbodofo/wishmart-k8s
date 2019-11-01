@@ -35,7 +35,7 @@ export const Navigation = () => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem active>
+      <MDBNavItem>
         <Link href="/">
           <a className="nav-link">Home</a>
         </Link>
