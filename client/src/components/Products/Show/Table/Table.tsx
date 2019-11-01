@@ -54,11 +54,11 @@ const Table = (props: ProductTable) => {
     <>
       <MDBContainer className="mt-5 text-center">
         <MDBRow>
-          <MDBCol className="md-6 pt-3">
+          <MDBCol sm="12" md="6" pt="3">
             <Img src={props.obj.image} />
           </MDBCol>
 
-          <MDBCol className="md-6">
+          <MDBCol sm="12" md="6">
             <div className="pt-3">
               <h3>
                 Name:<strong> {props.obj.name}</strong>
